@@ -1,0 +1,63 @@
+import random
+
+def play():
+    secret = random.randint(1, 100)
+    attempts = 0
+    max_attempts = 10
+    print("1-dən 100-ə qədər bir ədəd tutdum. 10 cəhddə tapmağa çalış.")
+    while attempts < max_attempts:
+        guess = input(f"Cəhd {attempts+1}/{max_attempts}. Təxminin: ")
+        if not guess.isdigit():
+            print("Zəhmət olmasa tam ədəd daxil et.")
+            continue
+        guess = int(guess)
+        attempts += 1
+        if guess == secret:
+            print(f"\nUğurlar! {attempts} cəhdə tapdın! 🐉 EJDEHASAN!")
+            print("""
+                     ___====-_  _-====___
+               _--^^^#####//      \#####^^^--_
+            _-^##########// (    ) \##########^-_
+           -############//  |\^^/|  \############-
+         _/############//   (@::@)   \############\_
+        /#############((     \\//     ))#############\\
+       -###############\\    (oo)    //###############-
+      -#################\\  / VV \  //#################-
+     -###################\\/      \//###################-
+    _#/|##########/\######(   /\   )######/\##########|\#_
+    |/ |#/\#/\#/\/  \#/\##\  |  |  /##/\#/  \/\#/\#/\#| \|
+    `  |/  V  V  `   V  \#\| |  | |/#/  V   '  V  V  \|  '
+       `   `  `      `   / | |  | | \\   '      '  '   '
+                        (  | |  | |  )
+                       __\ | |  | | /__
+                      (vvv(VVV)(VVV)vvv)
+            """)
+            break
+        elif guess < secret:
+            print("Daha böyük ədəd düşün.")
+        else:
+            print("Daha kiçik ədəd düşün.")
+    else:
+        print(f"\nTəəssüf! Cəhdlərin bitdi. Düz ədəd: {secret}")
+        print("Hələ zəifsən... məşq elə ki, bir gün ejdəha olasan 😿")
+        print("""
+         |\---/|
+         | ,_, |
+          \_`_/-..----.
+       ___/ `   ' ,""+ \\  
+      (__...'   __\    |`.___.';
+        (_,...'(_,.`__)/'.....+
+        """)
+
+def main():
+    while True:
+        play()
+        again = input("\nYenidən oynamaq istəyirsən? (h/x): ").strip().lower()
+        if again in ['h', 'y', 'b']:
+            continue
+        else:
+            print("Oyun bitdi. Sağ ol, ejdəha dostum! 🐲")
+            break
+
+if __name__ == "__main__":
+    main()
